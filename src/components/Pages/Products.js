@@ -17,7 +17,7 @@ const Products = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10 mx-auto">
-          {products?.map((product) => (
+          {products?.slice(0, 6).map((product) => (
             <SingleProduct key={product._id} product={product} />
           ))}
         </div>

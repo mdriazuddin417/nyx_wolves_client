@@ -1,67 +1,15 @@
-import axios from "axios";
 import React from "react";
-
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 
-const AddProduct = () => {
-  const [pic, setPic] = useState("");
-
-  const [loading, setLoading] = useState(false);
+const UpdateProduct = () => {
   const {
     register,
     formState: { errors },
     reset,
     handleSubmit,
   } = useForm();
-
-  const onSubmit = async (data) => {
-    setLoading(true);
-    const image = data.image[0];
-    const image2 = data.image2[0];
-
-    const formData = new FormData();
-
-    formData.append("image", image);
-    formData.append("image", image2);
-
-    await axios
-      .post(
-        "https://api.imgbb.com/1/upload?key=0e53fbea7f6ba111a8e8e78349d06c7b",
-        formData,
-      )
-      .then((res) => {
-        const img = res?.data?.data?.display_url;
-        setPic(img);
-        console.log("Work 1");
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-
-    await axios
-      .post(
-        "https://api.imgbb.com/1/upload?key=0e53fbea7f6ba111a8e8e78349d06c7b",
-        formData,
-      )
-      .then((res) => {
-        const img2 = res?.data?.data?.display_url;
-
-        console.log("Work 2");
-        const picture = [pic, img2];
-        const product = { ...data, image: picture };
-        axios.post("http://localhost:5000/product", product).then((res) => {
-          setLoading(false);
-          toast.success("Add product successfully !");
-          reset();
-        });
-      })
-      .catch((error) => {
-        toast.error(error?.message);
-        setLoading(false);
-      });
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <div className="h-screen flex justify-center items-center">
@@ -73,7 +21,7 @@ const AddProduct = () => {
         </div>
         <div>
           <h3 className="uppercase text-3xl text-[#ff5200] font-bold text-center my-5">
-            ADD Product
+            Product Update
           </h3>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
@@ -154,7 +102,7 @@ const AddProduct = () => {
               <input
                 className="w-full py-3 px-2 rounded-lg my-btn text-white font-samibold text-lg "
                 type="submit"
-                value={loading ? "Loading...." : "Add Product"}
+                value={"Update Product"}
               />
             </div>
           </form>
@@ -164,4 +112,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

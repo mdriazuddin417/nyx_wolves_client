@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddProduct from "./components/Pages/AddProduct";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/Pages/Home";
+import UpdateProduct from "./components/Pages/UpdateProduct";
 import Header from "./Shared/Header";
 
 function App() {
@@ -14,8 +16,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/updateproduct" element={<UpdateProduct />} />
         </Routes>
       </div>
+      <ToastContainer />
     </div>
   );
 }
