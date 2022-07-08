@@ -1,25 +1,25 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
-    <div class="navbar bg-base-100 px-12">
+    <div class="navbar bg-transparent py-5 px-12">
       <div class="flex-1">
         <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
       <div class="flex-none">
-        <ul class="menu menu-horizontal p-0">
+        <ul class="menu menu-horizontal p-0 space-x-3">
           <li>
-            <a>Home</a>
+            <NavLink to={"/home"}>Home</NavLink>
           </li>
           <li>
-            <a>Add Product</a>
+            <NavLink to={"addproduct"}>Add Product</NavLink>
           </li>
 
           <li>
-            <a>Team</a>
+            <NavLink to={"team"}>Team</NavLink>
           </li>
           <li>
-            <a>Login</a>
+            <NavLink to={"login"}>Login</NavLink>
           </li>
         </ul>
       </div>

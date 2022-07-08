@@ -5,7 +5,7 @@ import SingleProduct from "./SingleProduct";
 const Products = () => {
   const [products, setProducts] = useProducts();
   return (
-    <div className="my-10 lg:px-12">
+    <div className="my-10 lg:px-12 lg:py-10 p-5">
       <div>
         <h2 className="text-4xl text-center text-[#ff5200] font-bold">
           Our Products

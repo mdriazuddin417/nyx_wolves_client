@@ -16,10 +16,10 @@ const SingleProduct = ({ product }) => {
           <span className="link">Read More</span>
         </p>
         <div className="flex justify-between items-center ">
-          <button className="px-8 py-2 text-white rounded-full bg-gradient-to-t from-red-500 to-[tomato]">
+          <button className="px-8 py-2 text-white my-btn font-semibold rounded-xl">
             Update
           </button>
-          <button className="px-8 py-2 text-white rounded-full bg-gradient-to-t from-red-500 to-[tomato]">
+          <button className="px-8 py-2 text-white my-btn font-semibold rounded-xl">
             Delete
           </button>
         </div>
