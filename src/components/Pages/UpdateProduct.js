@@ -1,15 +1,71 @@
+import axios from "axios";
 import React from "react";
+
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateProduct = () => {
+  const { id } = useParams();
+  const [pic, setPic] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const {
     register,
     formState: { errors },
     reset,
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const image = data.image[0];
+    const image2 = data.image2[0];
+
+    const formData = new FormData();
+
+    formData.append("image", image);
+    formData.append("image", image2);
+
+    await axios
+      .post(
+        "https://api.imgbb.com/1/upload?key=0e53fbea7f6ba111a8e8e78349d06c7b",
+        formData,
+      )
+      .then((res) => {
+        const img = res?.data?.data?.display_url;
+        setPic(img);
+        console.log("Work 1");
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+
+    await axios
+      .post(
+        "https://api.imgbb.com/1/upload?key=0e53fbea7f6ba111a8e8e78349d06c7b",
+        formData,
+      )
+      .then((res) => {
+        const img2 = res?.data?.data?.display_url;
+
+        console.log("Work 2");
+        const picture = [pic, img2];
+        const product = { ...data, image: picture };
+        axios
+          .patch(`http://localhost:5000/product/${id}`, product)
+          .then((res) => {
+            setLoading(false);
+            toast.success("Update  successfully !");
+            reset();
+          });
+      })
+      .catch((error) => {
+        toast.error(error?.message);
+        setLoading(false);
+      });
   };
   return (
     <div className="h-screen flex justify-center items-center">
@@ -102,7 +158,7 @@ const UpdateProduct = () => {
               <input
                 className="w-full py-3 px-2 rounded-lg my-btn text-white font-samibold text-lg "
                 type="submit"
-                value={"Update Product"}
+                value={loading ? "Loading...." : "Product Update"}
               />
             </div>
           </form>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 
 const SingleProduct = ({ product }) => {
-  console.log(product);
   const { name, price, image, text, _id } = product;
   return (
     <div className="my-card p-8">
@@ -19,7 +18,7 @@ const SingleProduct = ({ product }) => {
           <span className="link">Read More</span>
         </p>
         <div className="flex justify-between items-center ">
-          <Link to={"/updateproduct"}>
+          <Link to={`/updateproduct/${_id}`}>
             <button className="px-8 py-2 text-white my-btn font-semibold rounded-xl">
               Update
             </button>
@@ -32,7 +31,7 @@ const SingleProduct = ({ product }) => {
             Delete
           </label>
         </div>
-        <DeleteModal />
+        <DeleteModal id={_id} />
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/addproduct" element={<AddProduct />} />
-          <Route path="/updateproduct" element={<UpdateProduct />} />
+          <Route path="/updateproduct/:id" element={<UpdateProduct />} />
         </Routes>
       </div>
       <ToastContainer />
