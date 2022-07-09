@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { actionCreators } from "../../state/index";
 import { bindActionCreators } from "redux";
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = ({ product, refetch }) => {
   const { name, price, image, text, _id } = product;
   const dispatch = useDispatch();
   const { increaseCount, decreaseCount } = bindActionCreators(
@@ -26,28 +26,28 @@ const SingleProduct = ({ product }) => {
           <span className="link">Read More</span>
         </p>
         <div className="flex justify-between items-center ">
-          {/* <Link to={`/updateproduct/${_id}`}> */}
-          <button
-            onClick={() => {
-              increaseCount(1);
-            }}
-            className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
-          >
-            Update
-          </button>
-          {/* </Link> */}
+          <Link to={`/updateproduct/${_id}`}>
+            <button
+              onClick={() => {
+                increaseCount(1);
+              }}
+              className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
+            >
+              Update
+            </button>
+          </Link>
 
           <label
             onClick={() => {
               decreaseCount(1);
             }}
-            // for="product_delete"
+            for="product_delete"
             className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
           >
             Delete
           </label>
         </div>
-        <DeleteModal id={_id} />
+        <DeleteModal id={_id} refetch={refetch} />
       </div>
     </div>
   );

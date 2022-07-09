@@ -7,7 +7,7 @@ const useProducts = () => {
     data: product,
     refetch,
     isLoading,
-  } = useQuery("products", () => axios.get("products.json"));
+  } = useQuery("products", () => axios.get("http://localhost:5000/product"));
 
   const products = product?.data;
 

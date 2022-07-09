@@ -1,9 +1,13 @@
 import React from "react";
 import useProducts from "../../customHook/useProducts";
 import SingleProduct from "./SingleProduct";
+import Loading from "../../Shared/Loading";
 
 const Products = () => {
-  const [products, setProducts] = useProducts();
+  const [products, refetch, loading] = useProducts();
+  if (loading) {
+    <Loading />;
+  }
   return (
     <div className="my-10 lg:px-12 lg:py-10 p-5">
       <div>
@@ -17,7 +21,7 @@ const Products = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10 mx-auto">
-          {products?.slice(0, 6).map((product) => (
+          {products?.slice(0, 6)?.map((product) => (
             <SingleProduct key={product._id} product={product} />
           ))}
         </div>
