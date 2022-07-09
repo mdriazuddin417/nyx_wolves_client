@@ -23,7 +23,9 @@ const SingleProduct = ({ product, refetch }) => {
         <p className="text-md text-gray-500 ">
           <span className="font-bold">Description: </span>
           {text.length < 120 ? text : text.slice(0, 120)}...
-          <span className="link">Read More</span>
+          <Link to={`/details/${_id}`} className="link">
+            Read More
+          </Link>
         </p>
         <div className="flex justify-between items-center ">
           <Link to={`/updateproduct/${_id}`}>

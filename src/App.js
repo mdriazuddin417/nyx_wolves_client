@@ -7,6 +7,9 @@ import Home from "./components/Pages/Home";
 import UpdateProduct from "./components/Pages/UpdateProduct";
 import Header from "./Shared/Header";
 import AllProduct from "./components/Pages/AllProduct";
+import Login from "./components/Pages/Login";
+import NotFound from "./components/Pages/NotFound";
+import ProductDetail from "./components/Pages/ProductDetail";
 
 function App() {
   return (
@@ -17,8 +20,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/updateproduct/:id" element={<UpdateProduct />} />
           <Route path="/product" element={<AllProduct />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <ToastContainer />
