@@ -89,7 +89,7 @@ const AddProduct = () => {
             </div>
             <div>
               <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 className="my-input"
                 {...register("price", {

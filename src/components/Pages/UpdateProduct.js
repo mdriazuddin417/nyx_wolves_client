@@ -51,7 +51,6 @@ const UpdateProduct = () => {
       .then((res) => {
         const img2 = res?.data?.data?.display_url;
 
-        console.log("Work 2");
         const picture = [pic, img2];
         const product = { ...data, image: picture };
         axios
@@ -93,7 +92,7 @@ const UpdateProduct = () => {
             </div>
             <div>
               <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 className="my-input"
                 {...register("price", {

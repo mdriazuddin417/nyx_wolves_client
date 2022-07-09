@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
+import { useDispatch } from "react-redux";
+import { actionCreators } from "../../state/index";
+import { bindActionCreators } from "redux";
 
 const SingleProduct = ({ product }) => {
   const { name, price, image, text, _id } = product;
+  const dispatch = useDispatch();
+  const { increaseCount, decreaseCount } = bindActionCreators(
+    actionCreators,
+    dispatch,
+  );
   return (
     <div className="my-card p-8">
       <div className="space-y-3">
@@ -18,14 +26,22 @@ const SingleProduct = ({ product }) => {
           <span className="link">Read More</span>
         </p>
         <div className="flex justify-between items-center ">
-          <Link to={`/updateproduct/${_id}`}>
-            <button className="px-8 py-2 text-white my-btn font-semibold rounded-xl">
-              Update
-            </button>
-          </Link>
+          {/* <Link to={`/updateproduct/${_id}`}> */}
+          <button
+            onClick={() => {
+              increaseCount(1);
+            }}
+            className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
+          >
+            Update
+          </button>
+          {/* </Link> */}
 
           <label
-            for="product_delete"
+            onClick={() => {
+              decreaseCount(1);
+            }}
+            // for="product_delete"
             className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
           >
             Delete

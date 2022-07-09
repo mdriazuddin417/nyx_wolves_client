@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useState } from "react";
-
+import { useQuery } from "react-query";
+import axios from "axios";
 const useProducts = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-  return [products, setProducts];
+  const {
+    data: product,
+    refetch,
+    isLoading,
+  } = useQuery("products", () => axios.get("products.json"));
+
+  const products = product?.data;
+
+  return [products, refetch, isLoading];
 };
 
 export default useProducts;

@@ -18,7 +18,7 @@ const DeleteModal = ({ id }) => {
             <label
               for="product_delete"
               class="btn  btn-sm"
-              onClick={() => handleDelete(id)}
+              // onClick={() => handleDelete(id)}
             >
               Ok
             </label>
