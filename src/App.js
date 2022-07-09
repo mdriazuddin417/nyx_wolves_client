@@ -12,6 +12,7 @@ import NotFound from "./components/Pages/NotFound";
 import ProductDetail from "./components/Pages/ProductDetail";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SignUp from "./components/Pages/SignUp";
 
 function App() {
   AOS.init();
@@ -27,6 +28,7 @@ function App() {
           <Route path="/updateproduct/:id" element={<UpdateProduct />} />
           <Route path="/product" element={<AllProduct />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

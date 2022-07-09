@@ -5,9 +5,7 @@ import Loading from "../../Shared/Loading";
 
 const Products = () => {
   const [products, refetch, loading] = useProducts();
-  if (loading) {
-    <Loading />;
-  }
+
   return (
     <section className="my-10 lg:px-12 lg:py-10 p-5 ">
       <div>
@@ -20,11 +18,15 @@ const Products = () => {
         </p>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10 mx-auto">
-          {products?.slice(0, 6)?.map((product) => (
-            <SingleProduct key={product._id} product={product} />
-          ))}
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10 mx-auto">
+            {products?.slice(0, 6)?.map((product) => (
+              <SingleProduct key={product._id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

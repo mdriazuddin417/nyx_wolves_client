@@ -3,10 +3,14 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useProducts from "../customHook/useProducts";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
+import { signOut } from "firebase/auth";
 const Header = () => {
   const count = useSelector((state) => state.count);
   const [products] = useProducts();
   const quantity = products?.length;
+  const [user] = useAuthState(auth);
   return (
     <div className="navbar bg-transparent py-5 px-12 sticky top-0 bg-base-100 z-40">
       <div className="flex-1">
@@ -35,9 +39,13 @@ const Header = () => {
           <li>
             <NavLink to={"addproduct"}>Add Product</NavLink>
           </li>
-          <li>
-            <NavLink to={"login"}>Login</NavLink>
-          </li>
+          {user ? (
+            <button onClick={() => signOut(auth)}>SignOut</button>
+          ) : (
+            <li>
+              <NavLink to={"login"}>Login</NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </div>
