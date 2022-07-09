@@ -13,7 +13,12 @@ const SingleProduct = ({ product, refetch }) => {
     dispatch,
   );
   return (
-    <div className="my-card p-8">
+    <section
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="my-card p-8"
+    >
       <div className="space-y-3">
         <img src={image[0]} alt="" className="rounded" />
         <h3 className="text-xl font-semibold text-[#ff5200]">{name}</h3>
@@ -43,7 +48,7 @@ const SingleProduct = ({ product, refetch }) => {
             onClick={() => {
               decreaseCount(1);
             }}
-            for="product_delete"
+            htmlFor="product_delete"
             className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
           >
             Delete
@@ -51,7 +56,7 @@ const SingleProduct = ({ product, refetch }) => {
         </div>
         <DeleteModal id={_id} refetch={refetch} />
       </div>
-    </div>
+    </section>
   );
 };
 

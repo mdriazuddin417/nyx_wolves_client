@@ -5,7 +5,9 @@ const useProducts = () => {
     data: product,
     refetch,
     isLoading,
-  } = useQuery("products", () => axios.get("http://localhost:5000/product"));
+  } = useQuery("products", () =>
+    axios.get("https://nyx-wolves-2022.herokuapp.com/product"),
+  );
 
   const products = product?.data;
 

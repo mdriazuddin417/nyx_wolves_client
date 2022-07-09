@@ -8,26 +8,28 @@ const Header = () => {
   const [products] = useProducts();
   const quantity = products?.length;
   return (
-    <div class="navbar bg-transparent py-5 px-12 sticky top-0 bg-base-100 z-40">
-      <div class="flex-1">
-        <a class="normal-case text-xl">daisyUI</a>
+    <div className="navbar bg-transparent py-5 px-12 sticky top-0 bg-base-100 z-40">
+      <div className="flex-1">
+        <a className="normal-case text-xl">daisyUI</a>
       </div>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal p-0 space-x-3">
+      <div className="flex-none">
+        <ul className="menu menu-horizontal p-0 space-x-3">
           <li>
             <NavLink to={"/home"}>Home</NavLink>
           </li>
           <li className="indicator">
             <NavLink to={"/product"} className="border border-purple-800">
               Products
-              <span class="indicator-item badge badge-secondary">
+              <span className="indicator-item badge badge-secondary">
                 {quantity}
               </span>
             </NavLink>
           </li>
           <li className="indicator border border-purple-800 rounded-md">
             <span>Product Visit</span>
-            <span class="indicator-item badge badge-secondary">{count}</span>
+            <span className="indicator-item badge badge-secondary">
+              {count}
+            </span>
           </li>
 
           <li>

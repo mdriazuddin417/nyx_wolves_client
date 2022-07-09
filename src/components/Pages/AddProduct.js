@@ -64,7 +64,7 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className="h-screen flex justify-center items-center">
+    <section className="h-screen flex justify-center items-center">
       <div className="min-w-[300px] w-[450px] my-card rounded-lg overflow-hidden p-10 relative">
         <div className="my-child-path flex justify-around items-center">
           <div className="w-1 h-full bg-white"></div>
@@ -103,12 +103,12 @@ const AddProduct = () => {
               )}
             </div>
             <div className=" ">
-              <label class="block my-input">
-                <span class="sr-only">Choose profile photo</span>
+              <label className="block my-input">
+                <span className="sr-only">Choose profile photo</span>
                 <input
                   {...register("image", { required: true })}
                   type="file"
-                  class="block w-full text-sm text-slate-500
+                  className="block w-full text-sm text-slate-500
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
@@ -121,12 +121,12 @@ const AddProduct = () => {
               )}
             </div>
             <div>
-              <label class="block my-input">
-                <span class="sr-only">Choose profile photo</span>
+              <label className="block my-input">
+                <span className="sr-only">Choose profile photo</span>
                 <input
                   {...register("image2", { required: true })}
                   type="file"
-                  class="block w-full text-sm text-slate-500
+                  className="block w-full text-sm text-slate-500
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-full file:border-0
                     file:text-sm file:font-semibold
@@ -160,7 +160,7 @@ const AddProduct = () => {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

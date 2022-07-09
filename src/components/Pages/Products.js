@@ -9,7 +9,7 @@ const Products = () => {
     <Loading />;
   }
   return (
-    <div className="my-10 lg:px-12 lg:py-10 p-5 ">
+    <section className="my-10 lg:px-12 lg:py-10 p-5 ">
       <div>
         <h2 className="text-4xl text-center text-[#ff5200] font-bold">
           Our Products
@@ -26,7 +26,7 @@ const Products = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,20 +10,20 @@ const DeleteModal = ({ id, refetch }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="product_delete" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box">
-          <h3 class="font-bold text-xl text-red-500">Are you sure ?</h3>
+      <input type="checkbox" id="product_delete" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-xl text-red-500">Are you sure ?</h3>
 
-          <div class="modal-action ">
+          <div className="modal-action ">
             <label
-              for="product_delete"
-              class="btn  btn-sm"
+              htmlFor="product_delete"
+              className="btn  btn-sm"
               onClick={() => handleDelete(id)}
             >
               Ok
             </label>
-            <label for="product_delete" class="btn btn-error btn-sm">
+            <label htmlFor="product_delete" className="btn btn-error btn-sm">
               Cancel
             </label>
           </div>

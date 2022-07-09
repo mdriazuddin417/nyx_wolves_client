@@ -10,8 +10,11 @@ import AllProduct from "./components/Pages/AllProduct";
 import Login from "./components/Pages/Login";
 import NotFound from "./components/Pages/NotFound";
 import ProductDetail from "./components/Pages/ProductDetail";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  AOS.init();
   return (
     <div className="App">
       <div className="max-w-7xl mx-auto">
