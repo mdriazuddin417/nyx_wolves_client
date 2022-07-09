@@ -1,0 +1,13 @@
+[debug] [2022-07-09T09:55:53.311Z] ----------------------------------------------------------------------
+[debug] [2022-07-09T09:55:53.314Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HC\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-07-09T09:55:53.315Z] CLI Version:   11.1.0
+[debug] [2022-07-09T09:55:53.315Z] Platform:      win32
+[debug] [2022-07-09T09:55:53.315Z] Node Version:  v16.15.1
+[debug] [2022-07-09T09:55:53.316Z] Time:          Sat Jul 09 2022 15:55:53 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-07-09T09:55:53.316Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-09T09:55:53.412Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-09T09:55:53.413Z] > authorizing via signed-in user (mdriazuddin417@gmail.com)
+[debug] [2022-07-09T09:55:53.413Z] [iam] checking project nyx-wolves-87d75 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-09T09:55:53.416Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nyx-wolves-87d75:testIamPermissions [none]
+[debug] [2022-07-09T09:55:53.417Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nyx-wolves-87d75:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

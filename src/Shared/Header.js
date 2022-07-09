@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="navbar bg-transparent py-5 px-12 sticky top-0 bg-base-100 z-40">
       <div className="flex-1">
-        <a className="normal-case text-xl">daisyUI</a>
+        <a className="normal-case text-xl">Nyxwolves</a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0 space-x-3">
