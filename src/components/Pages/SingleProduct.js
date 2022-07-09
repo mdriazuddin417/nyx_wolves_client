@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DeleteModal from "./DeleteModal";
+
 import { useDispatch } from "react-redux";
 import { actionCreators } from "../../state/index";
 import { bindActionCreators } from "redux";
 
-const SingleProduct = ({ product, refetch }) => {
+const SingleProduct = ({ product, refetch, handleDelete }) => {
   const { name, price, image, text, _id } = product;
   const dispatch = useDispatch();
   const { increaseCount, decreaseCount } = bindActionCreators(
     actionCreators,
     dispatch,
   );
+
   return (
     <section
       data-aos="flip-left"
@@ -46,7 +47,7 @@ const SingleProduct = ({ product, refetch }) => {
 
           <label
             onClick={() => {
-              decreaseCount(1);
+              handleDelete(_id);
             }}
             htmlFor="product_delete"
             className="px-8 py-2 text-white my-btn font-semibold rounded-xl"
@@ -54,7 +55,6 @@ const SingleProduct = ({ product, refetch }) => {
             Delete
           </label>
         </div>
-        <DeleteModal id={_id} refetch={refetch} />
       </div>
     </section>
   );
