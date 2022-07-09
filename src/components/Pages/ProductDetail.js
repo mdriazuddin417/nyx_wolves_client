@@ -12,7 +12,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch(`https://nyx-wolves-2022.herokuapp.com/${id}`)
+    fetch(`https://nyx-wolves-2022.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
